@@ -1,0 +1,89 @@
+cabal-version:       2.0
+name:                basecamp
+version:             0.0.0
+synopsis:            haskell bindings to basecamp v3 api
+description:         haskell bindings to basecamp v3 api
+homepage:            https://github.com/layer-3-communications/basecamp
+bug-reports:         https://github.com/layer-3-communications/basecamp/issues
+license:             BSD3
+license-file:        LICENSE
+author:              layer-3-communications
+maintainer:          dcartwright@layer3com.com
+copyright:           2019 layer-3-communications
+category:            Web
+build-type:          Simple
+extra-doc-files:     README.md
+                   , CHANGELOG.md
+tested-with:         GHC == 8.2.2, GHC == 8.4.4, GHC == 8.6.3
+
+source-repository head
+  type:                git
+  location:            https://github.com/layer-3-communications/basecamp.git
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Basecamp
+                       
+
+  build-depends:       base >= 4.10.1.0 && < 4.13
+                     
+
+  ghc-options:         -Wall
+                       -Wall
+                       -Werror
+
+  default-language:    Haskell2010
+
+executable basecamp
+  hs-source-dirs:      app
+  main-is:             Main.hs
+
+  build-depends:       base >= 4.10.1.0 && < 4.13
+                     , basecamp
+                     
+
+  ghc-options:         -Wall
+                       -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+                       -Wall
+                       -Werror
+
+  default-language:    Haskell2010
+
+test-suite basecamp-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+
+  build-depends:       base >= 4.10.1.0 && < 4.13
+                     , basecamp
+                     
+
+  ghc-options:         -Wall
+                       -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+                       -Wall
+                       -Werror
+
+  default-language:    Haskell2010
+
+benchmark basecamp-benchmark
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      benchmark
+  main-is:             Main.hs
+
+  build-depends:       base >= 4.10.1.0 && < 4.13
+                     , gauge
+                     , basecamp
+                     
+
+  ghc-options:         -Wall
+                       -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+                       -Wall
+                       -Werror
+
+  default-language:    Haskell2010
